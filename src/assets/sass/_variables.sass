@@ -1,0 +1,15 @@
+$color-indigo: #283593
+$color-black: #444
+$color-gray: #666
+$color-white: #fafafa
+$color-link: #0D47A1
+$color-input: #eaeaea
+$color-button: #37474f
+
+=min($width: 960px)
+  @media only screen and (min-width: $width)
+    @content
+
+=max($width: 959px)
+  @media only screen and (max-width: $width)
+    @content

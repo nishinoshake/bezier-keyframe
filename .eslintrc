@@ -1,0 +1,27 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType" : "module"
+  },
+	"rules": {
+    "no-cond-assign": "warn",
+    "no-dupe-args": "warn",
+    "no-dupe-keys": "warn",
+    "no-duplicate-case": "warn",
+    "no-empty": "warn",
+    "no-extra-semi": "warn",
+    "no-unreachable": "warn",
+    "dot-notation": "warn",
+    "array-bracket-spacing": ["warn","never",{}],
+    "camelcase": ["warn",{"properties":"always"}],
+    "comma-spacing": ["warn",{"after":true}],
+    "comma-dangle": ["warn", "never"],
+    "computed-property-spacing": ["warn","never"],
+    "key-spacing": ["warn",{"align":"colon","afterColon":true}],
+    "no-spaced-func": "warn",
+    "no-trailing-spaces": ["warn",{"skipBlankLines":true}],
+    "quote-props": ["warn", "as-needed"],
+    "quotes": ["warn","single"],
+    "semi": ["warn","never"]
+	}
+}
