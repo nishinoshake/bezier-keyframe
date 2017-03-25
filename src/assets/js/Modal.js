@@ -2,10 +2,9 @@
 export default class Modal {
   constructor() {
     this.elm = {
-      modals  : document.getElementsByClassName('modal'),
-      contents: document.getElementsByClassName('modal-contents'),
-      triggers: document.getElementsByClassName('modal-trigger'),
-      closes  : document.getElementsByClassName('modal-close')
+      modal   : document.getElementById('modal'),
+      box     : document.getElementsByClassName('modal-style-box'),
+      triggers: document.getElementsByClassName('modal-trigger')
     }
 
     this.className = {
@@ -26,12 +25,11 @@ export default class Modal {
   }
 
   bindEvents() {
+    this.elm.modal.addEventListener('click', (e) => this.close())
     this.setEventElements(this.elm.triggers, 'click', (e) => {
       this.open(e.target.getAttribute('data-target'))
     })
-    this.setEventElements(this.elm.contents, 'click', (e) =>  e.stopPropagation())
-    this.setEventElements(this.elm.modals, 'click', (e) => this.close())
-    this.setEventElements(this.elm.closes, 'click', (e) => this.close())
+    this.setEventElements(this.elm.box, 'click', (e) =>  e.stopPropagation())
   }
 
   open(id) {
@@ -40,17 +38,19 @@ export default class Modal {
     this.isOpen = true
 
     this.activeModalElm = document.getElementById(id)
+    this.elm.modal.classList.add(this.className.enter)
     this.activeModalElm.classList.add(this.className.enter)
   }
 
   close() {
     const onComplete = () => {
       this.isOpen = false
-      this.activeModalElm.removeEventListener(animationEnd, onComplete)
+      this.elm.modal.removeEventListener(animationEnd, onComplete)
+      this.elm.modal.classList.remove(this.className.enter, this.className.leave)
       this.activeModalElm.classList.remove(this.className.enter, this.className.leave)
     }
     
-    this.activeModalElm.addEventListener(animationEnd, onComplete)
-    this.activeModalElm.classList.add(this.className.leave)
+    this.elm.modal.addEventListener(animationEnd, onComplete)
+    this.elm.modal.classList.add(this.className.leave)
   }
 }

@@ -4,20 +4,20 @@
     <meta charset="utf-8" />
     <title>bezier keyframe generator</title>
 
-    <meta name="viewport" content="width=1200">
+    <meta name="viewport" content="width=1000">
 
     <meta name="description" content="Generate bezier curve keyframes using css easily.">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto|Source+Code+Pro" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/index.css">
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-53153991-10', 'auto');
-    ga('send', 'pageview');
-  </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-53153991-10', 'auto');
+      ga('send', 'pageview');
+    </script>
   </head>
   <body>
     <div class="container">
@@ -66,31 +66,34 @@
       </article>
     </div>
 
-    <div class="modal" id="sass">
+    <div class="modal" id="modal">
       <div class="modal-inside">
         <div class="modal-area">
-          <div class="modal-contents">
+          <!-- SASS ======================================== -->
+          <div class="modal-contents" id="sass">
+            <div class="modal-style-bar">
+              <p class="modal-style-copy" data-clipboard-target="#style-sass"><span></span></p>
+              <p class="modal-style-close"></p>
+            </div>
             <div class="modal-style-box">
               <textarea class="modal-style" id="style-sass" readonly>Generate SASS here after animation</textarea>
             </div>
-            <p class="modal-close">Close</p>
+          </div>
+
+          <!-- CSS ======================================== -->
+          <div class="modal-contents" id="css">
+            <div class="modal-style-bar">
+              <p class="modal-style-copy" data-clipboard-target="#style-css"><span></span></p>
+              <p class="modal-style-close"></p>
+            </div>
+            <div class="modal-style-box">
+              <textarea class="modal-style" id="style-css" readonly>Generate CSS here after animation</textarea>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="modal" id="css">
-      <div class="modal-inside">
-        <div class="modal-area">
-          <div class="modal-contents">
-            <div class="modal-style-box">
-              <textarea class="modal-style" id="style-css" readonly>Generate CSS here after animation</textarea>
-            </div>
-            <p class="modal-close">Close</p>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="source-code">source code</div>
     <script src="assets/js/app.js"></script>
   </body>

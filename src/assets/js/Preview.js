@@ -109,9 +109,9 @@ export default class Preview {
     this.frameSecond = 16
 
     this.digit = {
-      percent: 1,
+      percent: 2,
       opacity: 2,
-      pixel  : 0
+      pixel  : 2
     }
 
     this.funcsWhenRaf = {}
@@ -404,8 +404,8 @@ export default class Preview {
   }
 
   calcBezierPosition(t) {
-    const x = (1 - t) * (1 - t) * (1 - t) * this.shapes.start.default.x + 3 * (1 - t) * (1 - t) * t * this.shapes.p1.x + 3 * (1 - t) * Math.pow(t, 2) * this.shapes.p2.x + Math.pow(t, 3) * this.shapes.end.x
-    const y = (1 - t) * (1 - t) * (1 - t) * this.shapes.start.default.y + 3 * (1 - t) * (1 - t) * t * this.shapes.p1.y + 3 * (1 - t) * Math.pow(t, 2) * this.shapes.p2.y + Math.pow(t, 3) * this.shapes.end.y
+    const x = Math.pow(1 - t, 3) * this.shapes.start.default.x + 3 * Math.pow(1 - t, 2) * t * this.shapes.p1.x + 3 * (1 - t) * Math.pow(t, 2) * this.shapes.p2.x + Math.pow(t, 3) * this.shapes.end.x
+    const y = Math.pow(1 - t, 3) * this.shapes.start.default.y + 3 * Math.pow(1 - t, 2) * t * this.shapes.p1.y + 3 * (1 - t) * Math.pow(t, 2) * this.shapes.p2.y + Math.pow(t, 3) * this.shapes.end.y
     return [x, y]
   }
 
@@ -419,7 +419,7 @@ export default class Preview {
   }
 
   addKeyframes(target, forceDefault) {
-    const frame = state.get('duration') / this.frameSecond
+    const frame = Math.floor(state.get('duration') / this.frameSecond)
     const scale = forceDefault ? 1 : state.get('scale') / this.canvas.defaultScale
 
     for (let i = 0; i < frame; i++) {

@@ -26,19 +26,18 @@ button
   line-height: 50px
   text-align: center
   color: #fff
-  background-color: $color-button
-  border-radius: 2px
+  background-color: $color-black
   cursor: pointer
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2)
   transition: .2s ease-out
   &:hover
-    background-color: lighten($color-button, 10%)
+    background-color: lighten($color-black, 10%)
   &.is-disabled
-    background-color: lighten($color-button, 60%)
+    background-color: lighten($color-black, 60%)
     cursor: auto
 
 .container
-  width: 1200px
+  width: 1000px
   margin: 0 auto
   padding: 0 50px 50px
 
@@ -148,9 +147,11 @@ button
       width: 120px
       margin-right: 8px
       padding: 6px 10px
-      border-radius: 4px
     select
       width: 100%
+      appearance: none
+      padding: 6px 10px
+      cursor: pointer
   &-button
     flex: 1
     display: flex
@@ -209,20 +210,14 @@ button
     text-align: center
     pointer-events: auto
   &-contents
+    display: none
     position: relative
     background-color: #fafafa
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
     cursor: auto
     transition: .2s ease-out
-  &-close
-    position: absolute
-    top: 10px
-    right: 20px
-    padding: 10px
-    font-size: 20px
-    cursor: pointer
-    &:hover
-      color: $color-link
+    &.is-enter
+      display: block
   &-clipboard
     position: absolute
     top: 10px
@@ -241,6 +236,47 @@ button
     font-family: 'Source Code Pro', monospace
     &-box
       height: 90vh
+      padding-top: 85px
+    &-bar
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      display: flex
+      justify-content: space-between
+      background-color: #444
+    &-copy 
+      padding: 20px
+      position: relative
+      span
+        display: block
+        padding: 8px 20px
+        font-size: 20px
+        border: 2px solid #fafafa
+        color: #fafafa
+        cursor: pointer
+        &:before
+          content: 'Copy'
+      &:after
+        content: 'Done!'
+        position: absolute
+        left: 100%
+        top: 50%
+        font-size: 14px
+        opacity: 0
+        color: #fafafa
+        transform: translateY(-50%)
+      &.is-active:after
+        opacity: 1
+    &-close
+      padding: 20px
+      font-size: 20px
+      cursor: pointer
+      color: #fafafa
+      display: flex
+      align-items: center
+      &:before
+        content: 'Close'
 
 @keyframes anime-enter
   0%
