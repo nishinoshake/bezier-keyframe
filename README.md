@@ -1,2 +1,2 @@
 # bezier keyframe generator
-http://bezier.noplan.co
+https://bezier.noplan.cc
